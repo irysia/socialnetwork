@@ -26,14 +26,17 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav mr-auto">
-      </ul>
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" href="?action=login" role="button">Login</a>
+            <form class="nav-link" method="get">
+                <input name="search" type="text" value="<?=isset($_GET["search"])?? "" ?>"></input>
+            </form>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="?action=register" role="button">Sign Up</a>
+            <a class="nav-link" href="?action=login" role="button">Login</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="?action=register" role="button">Sign Up</a>
         </li>
       </ul>
     </div>

@@ -26,3 +26,8 @@ function GetAllPostsFromUserId($userId)
   return $response->fetchAll();
 }
 
+function SearchInPosts($search){
+  global $PDO;
+  $response = $PDO->query("SELECT post.*, user.nickname FROM post LEFT JOIN user ON (post.user_id = user.id) WHERE post.content like '%$search%' ORDER BY post.created_at DESC");
+  return $response->fetchAll();
+}
