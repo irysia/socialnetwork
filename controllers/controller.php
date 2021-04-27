@@ -33,20 +33,15 @@ switch ($action) {
     include "../models/CommentManager.php";
     $comments = array();
 
-    foreach ($posts as  $onePost) {
-     $comment[$onePost['id']] = GetAllCommentsFromPostId($onePost['id']);
+    foreach ($posts as $onePost) {
+     $comments[$onePost["id"]] = GetAllCommentsFromPostId($onePost['id']); 
     }
-    // ===================HARDCODED PART===========================
-    // format idPost => array of comments
-    // $comments[1] = array(
-    //   array("nickname" => "FakeUser1", "created_at" => "1970-01-01 00:00:00", "content" => "Fake comment 01."),
-    //   array("nickname" => "FakeUser2", "created_at" => "1970-01-02 00:00:00", "content" => "Fake comment 02."),
-    //   array("nickname" => "FakeUser1", "created_at" => "1970-01-03 00:00:00", "content" => "Fake comment 03.")
-    // );
-    // $comments[3] = array(
-    //   array("nickname" => "FakeUser1", "created_at" => "1970-01-01 00:00:00", "content" => "Fake comment 04."),
-    // );
-    // // =============================================================
+    
+    // foreach ($posts as $onePost) {
+    //   $postId = $onePost['id'];
+    //   $commentsForThisPostId = GetAllCommentsFromPostId($postId);
+    //   $comments[$postId] = $commentsForThisPostId;
+    // }
 
     include "../views/DisplayPosts.php";
     break;

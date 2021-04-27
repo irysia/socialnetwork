@@ -26,8 +26,3 @@ function GetAllPostsFromUserId($userId)
   return $response->fetchAll();
 }
 
-function GetAllCommentsFromPostId ($postId){
-  global $PDO;
-  $response = $PDO -> query("SELECT * from comment WHERE post_id = $postId ORDER BY created_at DESC");
-  return $response->fetchAll();
-}
