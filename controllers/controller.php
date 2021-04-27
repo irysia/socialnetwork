@@ -33,7 +33,12 @@ switch ($action) {
     break;
   
   case 'newMsg':
-    // code...
+    include "../models/PostManager.php";
+    if (isset($_SESSION['userId']) && isset($_POST['msg'])) {
+      $user = $_SESSION['userId'];
+      CreateNewPost($user['id'], $_POST['msg']);
+    }
+    header('Location: ?action=display');
     break;
 
   case 'newComment':

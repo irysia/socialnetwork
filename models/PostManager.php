@@ -31,3 +31,8 @@ function SearchInPosts($search){
   $response = $PDO->query("SELECT post.*, user.nickname FROM post LEFT JOIN user ON (post.user_id = user.id) WHERE post.content like '%$search%' ORDER BY post.created_at DESC");
   return $response->fetchAll();
 }
+
+function CreateNewPost ($userId,$content){
+  global $PDO;
+  $PDO ->exec("INSERT INTO post (content,user_id) values ('$content',$userId)"); 
+}
